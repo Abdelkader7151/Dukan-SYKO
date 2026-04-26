@@ -47,59 +47,6 @@ export default function DukanPage() {
         </div>
       </section>
 
-      {/* Categories + Info */}
-      <section className="shell section-pad">
-        <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
-          <div className="card p-8">
-            <p className="eyebrow mb-6">Browse Categories</p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {dukanInfo.categories.map((cat, i) => (
-                <div key={cat} className="flex items-center gap-3 rounded-xl
-                  border border-[rgba(240,217,168,0.1)] bg-[#050505]/60 px-4 py-3">
-                  <span className="text-[#f5c842] text-sm font-bold">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="text-zinc-200 text-sm">{cat}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8">
-              <a href="https://www.dukansykomarketplace.com" target="_blank"
-                rel="noopener noreferrer" className="btn-gold">
-                Order from Dukan
-              </a>
-            </div>
-          </div>
-
-          <div className="space-y-5">
-            {/* Dukan logo display */}
-            <div className="card overflow-hidden h-52 relative">
-              <Image src="/branding/dukan-syko-from-pdf.png" alt="Dukan SYKO" fill
-                sizes="(max-width: 1024px) 100vw, 320px" className="object-contain p-6" />
-            </div>
-
-            <div className="card p-6">
-              <p className="eyebrow mb-4">Hours &amp; Location</p>
-              <address className="not-italic space-y-2 text-sm text-zinc-300">
-                <p className="text-[#f0d9a8] font-medium">{dukanInfo.hours[0]}</p>
-                <p>{dukanInfo.address}</p>
-                <a href={`tel:${dukanInfo.phone.replace(/\D/g,"")}`}
-                  className="block text-[#f5c842] hover:text-[#f0d9a8] transition-colors">
-                  {dukanInfo.phone}
-                </a>
-              </address>
-              <a href="tel:+19294414306" className="btn-gold mt-5 inline-flex">
-                Call Dukan
-              </a>
-            </div>
-
-            {/* Korean heart accent */}
-            <div className="card h-28 relative overflow-hidden">
-              <Image src="/illustrations/SyKo-05.png" alt="Korean love" fill
-                sizes="(max-width: 1024px) 100vw, 320px" className="object-contain p-4 illus opacity-60" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Product-forward marketplace strip */}
       <section className="shell pb-14 sm:pb-20">
         <div className="mb-8">

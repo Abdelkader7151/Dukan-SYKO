@@ -24,7 +24,7 @@ const localBusinessSchema = {
       },
       telephone: "+1-929-424-0423",
       email: "brooklynsyko@gmail.com",
-      url: "https://www.sykorestaurant.com",
+      url: "https://www.sykobrooklyn.com/restaurant",
     },
     {
       "@type": "Store",
@@ -39,7 +39,7 @@ const localBusinessSchema = {
       },
       telephone: "+1-929-441-4306",
       email: "brooklyndukan@gmail.com",
-      url: "https://www.dukansykomarketplace.com",
+      url: "https://www.sykobrooklyn.com/dukan",
     },
   ],
 };
