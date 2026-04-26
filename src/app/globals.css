@@ -1,0 +1,361 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "SykoHero";
+  src: url("/fonts/syko-hero.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────
+   SYKO DESIGN TOKENS
+   Palette extracted from brand assets
+───────────────────────────────────────────── */
+:root {
+  --bg:         #050505;
+  --bg-panel:   #0e0e0e;
+  --bg-card:    #141414;
+  --red:        #cc2200;
+  --red-bright: #e63434;
+  --gold:       #f5c842;
+  --cream:      #f0d9a8;
+  --orange:     #e85b27;
+  --white:      #fafaf8;
+  --muted:      #888880;
+  --ink:        #1a1a1a;
+  --border:     rgba(240,217,168,0.12);
+  --border-red: rgba(204,34,0,0.35);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--white);
+  --font-sans: var(--font-body);
+  --font-brand: var(--font-brand);
+}
+
+/* ─────────────────────────────────────────────
+   BASE
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY UTILITIES
+───────────────────────────────────────────── */
+.font-brand {
+  font-family: var(--font-brand), sans-serif;
+}
+
+/* Display: SYKO wordmark + hero subword — same Bebas Neue family */
+.syko-word {
+  font-family: var(--font-brand), sans-serif;
+  font-size: clamp(5.5rem, 14vw, 13rem);
+  letter-spacing: 0.06em;
+  line-height: 0.88;
+  color: var(--red);
+  text-shadow: 4px 4px 0 rgba(204,34,0,0.28);
+}
+
+/* Hero wordmark variant matching the provided nested Wix style */
+.syko-word-street-wrap {
+  text-align: center;
+}
+
+.syko-word-street {
+  font-size: 176px;
+  line-height: normal;
+  text-align: center;
+  margin: 0;
+}
+
+.syko-word-shadow {
+  text-shadow: rgba(0, 0, 0, 0.298039) 0 5px 0;
+}
+
+.syko-word-color {
+  color: #cc3333;
+}
+
+.syko-word-letter {
+  letter-spacing: normal;
+}
+
+.syko-word-size {
+  font-size: 176px;
+}
+
+.syko-word-weight {
+  font-weight: 700;
+}
+
+.syko-word-family {
+  font-family:
+    "SykoHero",
+    wfont_21989d_82d69732c03c454c86a91fda202491ad,
+    wf_82d69732c03c454c86a91fda2,
+    orig_tapeflow,
+    var(--font-brand),
+    sans-serif;
+}
+
+.syko-word-style {
+  font-style: italic;
+}
+
+@media (max-width: 1200px) {
+  .syko-word-street,
+  .syko-word-size {
+    font-size: clamp(6.25rem, 13.5vw, 11rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .syko-word-street,
+  .syko-word-size {
+    font-size: clamp(4.25rem, 19vw, 6rem);
+  }
+
+  .syko-subword {
+    font-size: clamp(1rem, 5.2vw, 1.45rem);
+    letter-spacing: 0.14em;
+    text-align: center;
+  }
+
+  .hero-sub-accent {
+    text-shadow: rgba(0, 0, 0, 0.298039) 0 1px 0;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 0.7rem 1.15rem;
+    font-size: 0.78rem;
+  }
+
+  .btn-gold {
+    padding: 0.68rem 1.1rem;
+    font-size: 0.76rem;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+  }
+}
+
+.syko-subword {
+  font-family: var(--font-brand), sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+  letter-spacing: 0.28em;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.hero-sub-accent {
+  font-family:
+    "SykoHero",
+    wfont_21989d_82d69732c03c454c86a91fda202491ad,
+    wf_82d69732c03c454c86a91fda2,
+    orig_tapeflow,
+    var(--font-brand),
+    sans-serif;
+  color: #cc3333;
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: rgba(0, 0, 0, 0.298039) 0 2px 0;
+}
+
+.page-title {
+  font-family: var(--font-brand), sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  color: var(--red);
+}
+
+.section-headline {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: -0.015em;
+  color: var(--white);
+}
+
+.eyebrow {
+  font-family: var(--font-brand), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─────────────────────────────────────────────
+   LAYOUT UTILITIES
+───────────────────────────────────────────── */
+.shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 88rem;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.section-pad {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+/* Compact spacing mode for the street homepage */
+.compact-street .section-pad {
+  padding-block: clamp(2.75rem, 5.5vw, 4.75rem);
+}
+
+/* ─────────────────────────────────────────────
+   CARD / PANEL
+───────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+}
+
+.card-red {
+  border-color: var(--border-red);
+}
+
+/* ─────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 9999px;
+  padding: 0.85rem 2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: background 0.22s, transform 0.18s;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: var(--red-bright);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1.5px solid var(--cream);
+  color: var(--cream);
+  border-radius: 9999px;
+  padding: 0.85rem 2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: border-color 0.22s, color 0.22s, background 0.22s, transform 0.18s;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background: var(--cream);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--bg);
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: background 0.22s, transform 0.18s;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  background: #ffe87a;
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────
+   ILLUSTRATION UTILITY
+───────────────────────────────────────────── */
+.illus {
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.55));
+}
+
+/* ─────────────────────────────────────────────
+   DIVIDER
+───────────────────────────────────────────── */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--red) 60%, transparent);
+  opacity: 0.35;
+}
+
+/* ─────────────────────────────────────────────
+   GLOBAL LOADING SCREEN
+───────────────────────────────────────────── */
+.syko-loader-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at center, rgba(204, 34, 0, 0.15), transparent 55%),
+    var(--bg);
+}
+
+.syko-loader-wrap {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  display: grid;
+  place-items: center;
+}
+
+.syko-loader-logo {
+  position: relative;
+  width: 7rem;
+  height: 7rem;
+  z-index: 2;
+}
+
+.syko-loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 3px solid rgba(240, 217, 168, 0.24);
+  border-top-color: var(--red);
+  border-right-color: var(--gold);
+  animation: syko-spin 0.95s linear infinite;
+}
+
+@keyframes syko-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   SCROLLBAR
+───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 9999px; }
