@@ -4,9 +4,9 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 const icons = [
-  { src: "/illustrations/SyKo-10.png", alt: "Little Syria street sign", label: "Little Syria" },
-  { src: "/illustrations/SyKo-11.png", alt: "Korea Way street sign", label: "Korea Way" },
-  { src: "/illustrations/SyKo-04.png", alt: "Grand Army Plaza", label: "Brooklyn" },
+  { src: "/illustrations/SyKo-10.webp", alt: "Little Syria street sign", label: "Little Syria" },
+  { src: "/illustrations/SyKo-11.webp", alt: "Korea Way street sign", label: "Korea Way" },
+  { src: "/illustrations/SyKo-04.webp", alt: "Grand Army Plaza", label: "Brooklyn" },
 ];
 
 export function HomeCultureStrip() {
@@ -17,7 +17,7 @@ export function HomeCultureStrip() {
       {/* Warm pattern bg at low opacity */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/illustrations/SyKo-14.png"
+          src="/illustrations/SyKo-14.webp"
           alt=""
           fill
           className="object-cover object-center opacity-[0.07]"
@@ -43,7 +43,7 @@ export function HomeCultureStrip() {
           </h2>
           <p className="mt-5 text-zinc-300 leading-7">
             In 2022 two families — one Syrian, one Korean — brought their
-            culinary traditions together in Windsor Terrace. By 2024 the love
+            culinary traditions together in Brooklyn on Prospect Park W. By 2024 the love
             spread into Dukan SYKO, a neighborhood marketplace celebrating both
             pantry cultures.
           </p>

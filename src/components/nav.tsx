@@ -79,7 +79,7 @@ export function SiteNav() {
               className="relative w-14 h-14 sm:w-20 sm:h-20 shrink-0"
             >
               <Image
-                src="/branding/syko-logo-transparent.png"
+                src="/branding/syko-logo-transparent.webp"
                 alt="SYKO logo"
                 fill
                 sizes="(max-width: 640px) 56px, 80px"
@@ -112,7 +112,7 @@ export function SiteNav() {
               </Link>
             ))}
             <a
-              href="tel:+19294240423"
+              href="tel:+19294414306"
               className="btn-primary !py-2.5 !px-5 !text-sm ml-2"
             >
               Call Now
@@ -159,7 +159,7 @@ export function SiteNav() {
               </Link>
             ))}
             <a
-              href="tel:+19294240423"
+              href="tel:+19294414306"
               className="btn-primary mt-4"
             >
               Call Restaurant

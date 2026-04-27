@@ -78,19 +78,19 @@ export function StreetExperience() {
       >
         {/* Cultural pattern very faint */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image src="/illustrations/SyKo-14.png" alt="" fill
+          <Image src="/illustrations/SyKo-14.webp" alt="" fill
             className="object-cover opacity-[0.07]" sizes="100vw" priority />
         </div>
 
         {/* NYC skyline far horizon */}
         <div className="absolute inset-x-0 bottom-0 h-[55%] z-0 pointer-events-none">
-          <Image src="/illustrations/SyKo-02.png" alt="" fill
+          <Image src="/illustrations/SyKo-02.webp" alt="" fill
             className="object-cover object-bottom opacity-[0.18] illus" sizes="100vw" priority />
         </div>
 
         {/* Brooklyn Bridge — deep background center */}
         <div className="absolute inset-x-0 bottom-0 h-[65%] z-0 pointer-events-none">
-          <Image src="/illustrations/SyKo-12.png" alt="" fill
+          <Image src="/illustrations/SyKo-12.webp" alt="" fill
             className="object-cover object-bottom opacity-[0.12] illus" sizes="100vw" priority />
         </div>
 
@@ -101,14 +101,14 @@ export function StreetExperience() {
         {/* LEFT street pole — Little Syria sign */}
         <div id="sign-syria"
           className="absolute left-4 sm:left-10 md:left-20 top-[30%] -translate-y-1/2 w-28 sm:w-40 md:w-52 z-20 illus hidden sm:block">
-          <Image src="/illustrations/SyKo-10.png" alt="Little Syria" width={220} height={310}
+          <Image src="/illustrations/SyKo-10.webp" alt="Little Syria" width={220} height={310}
             className="w-full h-auto drop-shadow-[0_8px_24px_rgba(204,34,0,0.5)]" />
         </div>
 
         {/* RIGHT street pole — Korea Way sign */}
         <div id="sign-korea"
           className="absolute right-4 sm:right-10 md:right-20 top-[30%] -translate-y-1/2 w-28 sm:w-40 md:w-52 z-20 illus hidden sm:block">
-          <Image src="/illustrations/SyKo-11.png" alt="Korea Way" width={220} height={310}
+          <Image src="/illustrations/SyKo-11.webp" alt="Korea Way" width={220} height={310}
             className="w-full h-auto drop-shadow-[0_8px_24px_rgba(245,200,66,0.4)]" />
         </div>
 
@@ -120,7 +120,7 @@ export function StreetExperience() {
           {/* Logo mark */}
           <div id="hero-logo" className="relative w-28 h-28 sm:w-40 sm:h-40 md:w-44 md:h-44 mb-4 sm:mb-5">
             <Image
-              src="/branding/syko-logo-transparent.png"
+              src="/branding/syko-logo-transparent.webp"
               alt="SYKO"
               fill
               sizes="(max-width: 640px) 144px, (max-width: 768px) 160px, 176px"
@@ -157,8 +157,8 @@ export function StreetExperience() {
         <div className="relative z-10 text-center px-4 pt-[56vh] sm:pt-[60vh]">
           {/* CTAs */}
           <div id="hero-ctas" className="mt-8 sm:mt-10 flex flex-wrap gap-3 sm:gap-4 justify-center">
-            <Link href="/restaurant" className="btn-primary">Go to Restaurant</Link>
-            <Link href="/dukan" className="btn-outline">Go to Dukan</Link>
+            <Link href="/restaurant/" className="btn-primary">Go to Restaurant</Link>
+            <Link href="/dukan/" className="btn-outline">Go to Dukan</Link>
           </div>
 
           {/* This fades IN as SYKO rises — becomes the next section reveal */}
@@ -212,8 +212,8 @@ export function StreetExperience() {
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2">
-              <Link href="/restaurant" className="btn-primary">Full Menu</Link>
-              <a href="tel:+19294240423" className="btn-outline">
+              <Link href="/restaurant/" className="btn-primary">Full Menu</Link>
+              <a href="tel:+19294414306" className="btn-outline">
                 {restaurantInfo.phone}
               </a>
             </div>
@@ -223,13 +223,13 @@ export function StreetExperience() {
           <div className="relative h-72 sm:h-[28rem]">
             {/* Syrian ruins behind */}
             <div className="absolute left-0 bottom-0 w-2/3 h-full pointer-events-none illus">
-              <Image src="/illustrations/SyKo-08.png" alt="" fill
+              <Image src="/illustrations/SyKo-08.webp" alt="" fill
                 sizes="(max-width: 1024px) 66vw, 33vw"
                 className="object-contain object-left-bottom opacity-20" />
             </div>
             {/* Main storefront */}
             <div className="absolute right-0 bottom-0 w-full h-full illus">
-              <Image src="/illustrations/SyKo-06.png" alt="SYKO restaurant storefront"
+              <Image src="/illustrations/SyKo-06.webp" alt="SYKO restaurant storefront"
                 fill sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain object-right-bottom opacity-85" />
             </div>
@@ -259,19 +259,19 @@ export function StreetExperience() {
           <div className="relative h-64 sm:h-96 order-2 lg:order-1">
             {/* Korean temple behind */}
             <div className="absolute inset-0 pointer-events-none illus">
-              <Image src="/illustrations/SyKo-07.png" alt="" fill
+              <Image src="/illustrations/SyKo-07.webp" alt="" fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain object-left-bottom opacity-20" />
             </div>
             {/* Dukan fez logo large */}
             <div className="absolute inset-0 pointer-events-none">
-              <Image src="/branding/syko-logo-transparent.png" alt="Dukan SYKO" fill
+              <Image src="/branding/syko-logo-transparent.webp" alt="Dukan SYKO" fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain p-6 opacity-80" />
             </div>
             {/* Korean heart accent */}
             <div className="absolute right-4 top-4 w-20 pointer-events-none illus">
-              <Image src="/illustrations/SyKo-05.png" alt="" width={120} height={140}
+              <Image src="/illustrations/SyKo-05.webp" alt="" width={120} height={140}
                 className="w-full h-auto opacity-75" />
             </div>
           </div>
@@ -300,7 +300,7 @@ export function StreetExperience() {
 
             <p className="text-xs text-zinc-500">{dukanInfo.hours[0]}</p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/dukan" className="btn-gold">Browse Dukan</Link>
+              <Link href="/dukan/" className="btn-gold">Browse Dukan</Link>
               <a href="tel:+19294414306" className="btn-outline">{dukanInfo.phone}</a>
             </div>
           </div>
@@ -323,10 +323,11 @@ export function StreetExperience() {
         {/* Single static story map image (full horizontal width) */}
         <div className="pb-10 sm:pb-14">
           <Image
-            src="/maps/syki-story-map.png"
+            src="/maps/syki-story-map.webp"
             alt="SYKI story map"
-            width={34992}
-            height={7236}
+            width={4096}
+            height={847}
+            sizes="100vw"
             className="block w-full h-auto"
             priority={false}
           />
@@ -342,7 +343,7 @@ export function StreetExperience() {
 
         {/* Grand Army arch — end of street landmark */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image src="/illustrations/SyKo-04.png" alt="" fill
+          <Image src="/illustrations/SyKo-04.webp" alt="" fill
             className="object-contain object-bottom opacity-15 illus" sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent" />
         </div>
@@ -362,7 +363,7 @@ export function StreetExperience() {
                 <p className="text-[#f0d9a8]">{restaurantInfo.address}</p>
                 <p>{restaurantInfo.hours[0]}</p>
               </address>
-              <a href="tel:+19294240423" className="btn-primary mt-5 inline-flex">
+              <a href="tel:+19294414306" className="btn-primary mt-5 inline-flex">
                 📞 {restaurantInfo.phone}
               </a>
             </div>

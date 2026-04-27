@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { StreetExperience } from "@/components/street-experience";
 
 export const metadata: Metadata = {
-  title: "SYKO Brooklyn | Syrian & Korean Restaurant and Dukan Marketplace",
+  title: "SYKO",
   description:
     "Walk the street where Syrian and Korean food culture meet in Brooklyn. SYKO Restaurant and Dukan SYKO Marketplace — two worlds, one neighborhood.",
 };
@@ -16,13 +16,13 @@ const localBusinessSchema = {
       servesCuisine: ["Syrian", "Korean", "Halal", "Middle Eastern"],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "126 Windsor Place",
+        streetAddress: "214a Prospect Park W",
         addressLocality: "Brooklyn",
         addressRegion: "NY",
         postalCode: "11215",
         addressCountry: "US",
       },
-      telephone: "+1-929-424-0423",
+      telephone: "+1-929-441-4306",
       email: "brooklynsyko@gmail.com",
       url: "https://www.sykobrooklyn.com/restaurant",
     },
@@ -31,7 +31,7 @@ const localBusinessSchema = {
       name: "Dukan SYKO Marketplace",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "214A Prospect Park West",
+        streetAddress: "214a Prospect Park W",
         addressLocality: "Brooklyn",
         addressRegion: "NY",
         postalCode: "11215",

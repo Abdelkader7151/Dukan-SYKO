@@ -1,28 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
-import { restaurantInfo, dukanInfo, siteNav } from "@/content/site-content";
+import { restaurantInfo, dukanInfo } from "@/content/site-content";
 
 export function SiteFooter() {
+  const sharedAddress = dukanInfo.address;
+  const sharedPhone = dukanInfo.phone;
+  const sharedPhoneHref = sharedPhone.replace(/\D/g, "");
+
   return (
     <footer className="border-t border-[rgba(240,217,168,0.1)] bg-[#0a0a0a]">
       {/* Cultural pattern strip */}
       <div className="h-1 bg-gradient-to-r from-[#cc2200] via-[#f5c842] to-[#cc2200]" />
 
-      <div className="shell section-pad">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="shell py-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="relative w-12 h-12">
+          <div>
+            <Link href="/" className="mb-3 flex items-center gap-3">
+              <div className="relative h-10 w-10">
                 <Image
-                  src="/branding/syko-logo-transparent.png"
+                  src="/branding/syko-logo-transparent.webp"
                   alt="SYKO logo"
                   fill
-                  sizes="48px"
+                  sizes="40px"
                   className="object-contain rounded-md"
                 />
               </div>
-              <span className="font-brand text-4xl tracking-[0.1em] text-[#cc2200]">
+              <span className="font-brand text-3xl tracking-[0.1em] text-[#cc2200]">
                 SYKO
               </span>
             </Link>
@@ -31,72 +35,43 @@ export function SiteFooter() {
             </p>
           </div>
 
-          {/* Restaurant */}
+          {/* Shared contact */}
           <div>
-            <h3 className="eyebrow mb-4">Restaurant</h3>
+            <h3 className="eyebrow mb-3">Address &amp; Number</h3>
             <address className="not-italic space-y-2 text-sm text-zinc-300">
-              <p>{restaurantInfo.address}</p>
+              <p>{sharedAddress}</p>
               <a
-                href={`tel:${restaurantInfo.phone.replace(/\D/g, "")}`}
+                href={`tel:${sharedPhoneHref}`}
                 className="block hover:text-[#f0d9a8] transition-colors"
               >
-                {restaurantInfo.phone}
+                {sharedPhone}
               </a>
-              <a
-                href={`mailto:${restaurantInfo.email}`}
-                className="block hover:text-[#f0d9a8] transition-colors"
-              >
-                {restaurantInfo.email}
-              </a>
-              <div className="pt-1 space-y-1 text-[#888880]">
-                {restaurantInfo.hours.map((h) => (
-                  <p key={h}>{h}</p>
-                ))}
-              </div>
             </address>
           </div>
 
-          {/* Dukan */}
+          {/* Opening hours */}
           <div>
-            <h3 className="eyebrow mb-4">Dukan</h3>
-            <address className="not-italic space-y-2 text-sm text-zinc-300">
-              <p>{dukanInfo.address}</p>
-              <a
-                href={`tel:${dukanInfo.phone.replace(/\D/g, "")}`}
-                className="block hover:text-[#f0d9a8] transition-colors"
-              >
-                {dukanInfo.phone}
-              </a>
-              <a
-                href={`mailto:${dukanInfo.email}`}
-                className="block hover:text-[#f0d9a8] transition-colors"
-              >
-                {dukanInfo.email}
-              </a>
-              <div className="pt-1 text-[#888880]">
-                <p>{dukanInfo.hours[0]}</p>
+            <h3 className="eyebrow mb-3">Opening Hours</h3>
+            <div className="space-y-3 text-sm text-zinc-300">
+              <div>
+                <p className="text-[#f0d9a8]">Restaurant</p>
+                <div className="mt-1 space-y-1 text-[#888880]">
+                  {restaurantInfo.hours.map((h) => (
+                    <p key={h}>{h}</p>
+                  ))}
+                </div>
               </div>
-            </address>
-          </div>
-
-          {/* Nav */}
-          <div>
-            <h3 className="eyebrow mb-4">Navigate</h3>
-            <nav className="space-y-2">
-              {siteNav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block text-sm text-zinc-300 hover:text-[#f0d9a8] transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+              <div>
+                <p className="text-[#f0d9a8]">Dukan</p>
+                <div className="mt-1 text-[#888880]">
+                  <p>{dukanInfo.hours[0]}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="divider-gold my-8" />
+        <div className="divider-gold my-6" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#888880]">
           <p>© 2026 SYKO Brooklyn. All rights reserved.</p>

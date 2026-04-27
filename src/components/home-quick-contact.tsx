@@ -13,7 +13,7 @@ export function HomeQuickContact() {
         {/* Vector composite as background */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/illustrations/SyKo-Vector-SmartObjects-01.png"
+            src="/illustrations/SyKo-Vector-SmartObjects-01.webp"
             alt=""
             fill
             className="object-cover object-center opacity-[0.11]"
@@ -33,7 +33,7 @@ export function HomeQuickContact() {
             <p className="text-zinc-200 text-sm leading-6">{restaurantInfo.address}</p>
             <p className="text-zinc-400 text-sm mt-2">{restaurantInfo.hours[0]}</p>
             <a
-              href="tel:+19294240423"
+              href="tel:+19294414306"
               className="btn-primary mt-5 inline-flex"
             >
               📞 Call Restaurant

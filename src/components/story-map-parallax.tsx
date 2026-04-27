@@ -27,13 +27,13 @@ export function StoryMapParallax() {
   return (
     <div ref={wrapRef} className="relative h-72 sm:h-96 overflow-hidden border-y border-[rgba(240,217,168,0.08)]">
       {/* Layer 1: pattern */}
-      <Image data-p-bg src="/illustrations/SyKo-14.png" alt=""
+      <Image data-p-bg src="/illustrations/SyKo-14.webp" alt=""
         fill className="object-cover opacity-25" sizes="100vw" />
       {/* Layer 2: panoramic map */}
-      <Image data-p-mid src="/illustrations/SyKo-13.png" alt="SYKO story map panorama"
+      <Image data-p-mid src="/illustrations/SyKo-13.webp" alt="SYKO story map panorama"
         fill className="object-cover object-top opacity-55" sizes="100vw" />
       {/* Layer 3: vector composite */}
-      <Image data-p-top src="/illustrations/SyKo-Vector-SmartObjects-01.png" alt=""
+      <Image data-p-top src="/illustrations/SyKo-Vector-SmartObjects-01.webp" alt=""
         fill className="object-contain object-center opacity-25" sizes="100vw" />
       {/* Gradients */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]" />

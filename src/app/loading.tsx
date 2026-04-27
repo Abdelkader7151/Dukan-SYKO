@@ -7,7 +7,7 @@ export default function Loading() {
         <div className="syko-loader-ring" />
         <div className="syko-loader-logo">
           <Image
-            src="/branding/syko-logo-transparent.png"
+            src="/branding/syko-logo-transparent.webp"
             alt="SYKO"
             fill
             sizes="112px"

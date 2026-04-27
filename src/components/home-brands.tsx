@@ -34,7 +34,7 @@ export function HomeBrands() {
           <div className="absolute -right-6 bottom-0 w-56 sm:w-72 h-48 sm:h-60 illus opacity-35
             transition-opacity duration-500 group-hover:opacity-55">
             <Image
-              src="/illustrations/SyKo-06.png"
+              src="/illustrations/SyKo-06.webp"
               alt="SYKO restaurant"
               fill
               className="object-contain object-right-bottom"
@@ -42,7 +42,7 @@ export function HomeBrands() {
           </div>
           {/* Syrian ruins motif — subtle */}
           <div className="absolute left-0 bottom-0 w-32 h-32 illus opacity-10">
-            <Image src="/illustrations/SyKo-08.png" alt="" fill className="object-contain object-left-bottom" />
+            <Image src="/illustrations/SyKo-08.webp" alt="" fill className="object-contain object-left-bottom" />
           </div>
 
           <div className="relative z-10 p-8 sm:p-10">
@@ -58,8 +58,8 @@ export function HomeBrands() {
               {restaurantInfo.hours.map((h) => <p key={h}>{h}</p>)}
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/restaurant" className="btn-primary">Explore Menu</Link>
-              <a href="tel:+19294240423" className="btn-outline !border-[#cc2200] !text-[#cc2200] hover:!bg-[#cc2200] hover:!text-white">
+              <Link href="/restaurant/" className="btn-primary">Explore Menu</Link>
+              <a href="tel:+19294414306" className="btn-outline !border-[#cc2200] !text-[#cc2200] hover:!bg-[#cc2200] hover:!text-white">
                 Call Now
               </a>
             </div>
@@ -78,7 +78,7 @@ export function HomeBrands() {
           <div className="absolute right-4 top-1/2 -translate-y-1/2 w-36 sm:w-48 h-36 sm:h-48
             illus opacity-30 transition-opacity duration-500 group-hover:opacity-55">
             <Image
-              src="/branding/syko-logo-transparent.png"
+              src="/branding/syko-logo-transparent.webp"
               alt="Dukan SYKO"
               fill
               className="object-contain"
@@ -86,7 +86,7 @@ export function HomeBrands() {
           </div>
           {/* Korean temple motif */}
           <div className="absolute left-0 bottom-0 w-36 h-28 illus opacity-10">
-            <Image src="/illustrations/SyKo-07.png" alt="" fill className="object-contain object-left-bottom" />
+            <Image src="/illustrations/SyKo-07.webp" alt="" fill className="object-contain object-left-bottom" />
           </div>
 
           <div className="relative z-10 p-8 sm:p-10">
@@ -102,7 +102,7 @@ export function HomeBrands() {
               <p>{dukanInfo.hours[0]}</p>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/dukan" className="btn-gold">Browse Categories</Link>
+              <Link href="/dukan/" className="btn-gold">Browse Categories</Link>
               <a href="tel:+19294414306" className="btn-outline">
                 Call Dukan
               </a>

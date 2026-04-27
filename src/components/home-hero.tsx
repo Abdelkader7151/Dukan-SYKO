@@ -29,7 +29,7 @@ export function HomeHero() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/illustrations/SyKo-14.png"
+          src="/illustrations/SyKo-14.webp"
           alt=""
           fill
           className="object-cover object-center"
@@ -49,7 +49,7 @@ export function HomeHero() {
         className="absolute bottom-0 left-0 right-0 z-0 h-56 sm:h-72 opacity-30"
       >
         <Image
-          src="/illustrations/SyKo-13.png"
+          src="/illustrations/SyKo-13.webp"
           alt="SYKO story panorama"
           fill
           className="object-cover object-top"
@@ -69,7 +69,7 @@ export function HomeHero() {
         })}
         className="absolute -right-8 top-1/2 -translate-y-1/2 w-80 sm:w-[28rem] z-0 illus hidden sm:block"
       >
-        <Image src="/illustrations/SyKo-12.png" alt="Brooklyn Bridge" width={500} height={380} className="w-full h-auto" />
+        <Image src="/illustrations/SyKo-12.webp" alt="Brooklyn Bridge" width={500} height={380} className="w-full h-auto" />
       </motion.div>
 
       {/* Asia map — left background */}
@@ -81,7 +81,7 @@ export function HomeHero() {
         })}
         className="absolute left-0 top-1/4 w-72 sm:w-96 z-0 illus hidden lg:block"
       >
-        <Image src="/illustrations/SyKo-01.png" alt="Syria Korea map" width={500} height={600} className="w-full h-auto" />
+        <Image src="/illustrations/SyKo-01.webp" alt="Syria Korea map" width={500} height={600} className="w-full h-auto" />
       </motion.div>
 
       {/* Korean finger heart — top right floating */}
@@ -93,7 +93,7 @@ export function HomeHero() {
         })}
         className="absolute right-6 top-28 w-20 sm:w-28 z-10 illus hidden md:block"
       >
-        <Image src="/illustrations/SyKo-05.png" alt="Korean heart" width={160} height={190} className="w-full h-auto" />
+        <Image src="/illustrations/SyKo-05.webp" alt="Korean heart" width={160} height={190} className="w-full h-auto" />
       </motion.div>
 
       {/* Dotted journey path */}
@@ -101,7 +101,7 @@ export function HomeHero() {
         {...(reduced ? {} : fadeIn(1.5))}
         className="absolute left-[18%] top-[12%] w-12 sm:w-20 z-10 illus opacity-30 hidden lg:block"
       >
-        <Image src="/illustrations/SyKo-03.png" alt="" width={80} height={200} className="w-full h-auto" />
+        <Image src="/illustrations/SyKo-03.webp" alt="" width={80} height={200} className="w-full h-auto" />
       </motion.div>
 
       {/* ── Main content ── */}
@@ -140,10 +140,10 @@ export function HomeHero() {
             {...(reduced ? {} : fadeUp(0.75))}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <Link href="/restaurant" className="btn-primary">
+            <Link href="/restaurant/" className="btn-primary">
               Go to Restaurant
             </Link>
-            <Link href="/dukan" className="btn-outline">
+            <Link href="/dukan/" className="btn-outline">
               Go to Dukan
             </Link>
           </motion.div>

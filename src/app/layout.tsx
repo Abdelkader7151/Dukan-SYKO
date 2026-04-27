@@ -13,19 +13,24 @@ const bebas = Bebas_Neue({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sykobrooklyn.com"),
-  title: "SYKO Brooklyn | Syrian & Korean Restaurant and Dukan Marketplace",
+  title: "SYKO",
   description:
-    "Premium Syrian-Korean restaurant and neighborhood marketplace experience in Brooklyn, Park Slope and Windsor Terrace.",
+    "Premium Syrian-Korean restaurant and neighborhood marketplace experience in Brooklyn near Prospect Park West.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   keywords: [
     "SYKO Brooklyn",
     "Syrian Korean restaurant Brooklyn",
-    "Windsor Terrace restaurant",
-    "Park Slope halal food",
+    "Prospect Park West restaurant",
+    "Brooklyn halal food",
     "Dukan SYKO marketplace",
     "Syrian Korean food Brooklyn",
   ],
   openGraph: {
-    title: "SYKO | Syrian & Korean Cuisine + Marketplace",
+    title: "SYKO",
     description:
       "Two cultures. One Brooklyn neighborhood destination. SYKO Restaurant and Dukan SYKO Marketplace.",
     type: "website",
@@ -34,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SYKO Brooklyn",
+    title: "SYKO",
     description: "Syrian and Korean flavors meet in Brooklyn.",
   },
 };
@@ -44,7 +49,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${bebas.variable} h-full`}>
-      <body className="min-h-full bg-[#050505] text-[#fafaf8] antialiased">
+      <body suppressHydrationWarning className="min-h-full bg-[#050505] text-[#fafaf8] antialiased">
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />

@@ -31,7 +31,7 @@ export function HomeStoryPreview() {
       <div className="relative h-64 sm:h-80 overflow-hidden">
         <div ref={panoramaRef} className="absolute inset-0 w-[110%] -left-[5%]">
           <Image
-            src="/illustrations/SyKo-13.png"
+            src="/illustrations/SyKo-13.webp"
             alt="SYKO story panorama – Syria Korea Brooklyn"
             fill
             className="object-cover object-top opacity-75"
@@ -63,7 +63,7 @@ export function HomeStoryPreview() {
             ))}
           </div>
           <div className="mt-8 flex justify-center">
-            <Link href="/story" className="btn-outline !border-[#f5c842] !text-[#f5c842] hover:!bg-[#f5c842] hover:!text-[#050505]">
+            <Link href="/story/" className="btn-outline !border-[#f5c842] !text-[#f5c842] hover:!bg-[#f5c842] hover:!text-[#050505]">
               Read the Full Story
             </Link>
           </div>

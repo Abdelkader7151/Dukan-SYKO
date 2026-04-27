@@ -8,6 +8,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "DastNevis";
+  src:
+    url("/fonts/dast-nevis.woff2") format("woff2"),
+    url("/fonts/dast-nevis.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─────────────────────────────────────────────
    SYKO DESIGN TOKENS
    Palette extracted from brand assets
@@ -26,6 +36,16 @@
   --ink:        #1a1a1a;
   --border:     rgba(240,217,168,0.12);
   --border-red: rgba(204,34,0,0.35);
+  --font-display:
+    "SykoHero",
+    wfont_21989d_82d69732c03c454c86a91fda202491ad,
+    wf_82d69732c03c454c86a91fda2,
+    orig_tapeflow,
+    var(--font-brand),
+    sans-serif;
+  --font-secondary: Arial, var(--font-body), Helvetica, sans-serif;
+  --font-korean: Arial, "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-arabic: "DastNevis", "Noto Naskh Arabic", "Segoe UI", Tahoma, serif;
 }
 
 @theme inline {
@@ -45,7 +65,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-family: var(--font-secondary);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -54,12 +74,21 @@ body {
    TYPOGRAPHY UTILITIES
 ───────────────────────────────────────────── */
 .font-brand {
-  font-family: var(--font-brand), sans-serif;
+  font-family: var(--font-display);
+}
+
+.font-korean {
+  font-family: var(--font-korean);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+  font-weight: 400;
 }
 
 /* Display: SYKO wordmark + hero subword — same Bebas Neue family */
 .syko-word {
-  font-family: var(--font-brand), sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(5.5rem, 14vw, 13rem);
   letter-spacing: 0.06em;
   line-height: 0.88;
@@ -154,7 +183,7 @@ body {
 }
 
 .syko-subword {
-  font-family: var(--font-brand), sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.4rem, 3.5vw, 2.6rem);
   letter-spacing: 0.28em;
   line-height: 1;
@@ -176,7 +205,7 @@ body {
 }
 
 .page-title {
-  font-family: var(--font-brand), sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 7rem);
   letter-spacing: 0.06em;
   line-height: 0.92;
@@ -184,6 +213,7 @@ body {
 }
 
 .section-headline {
+  font-family: var(--font-secondary);
   font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: 700;
   line-height: 1.07;
@@ -192,7 +222,7 @@ body {
 }
 
 .eyebrow {
-  font-family: var(--font-brand), sans-serif;
+  font-family: var(--font-display);
   font-size: 0.8rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -247,6 +277,7 @@ body {
   letter-spacing: 0.04em;
   transition: background 0.22s, transform 0.18s;
   text-decoration: none;
+  font-family: var(--font-secondary);
 }
 .btn-primary:hover {
   background: var(--red-bright);
@@ -266,6 +297,7 @@ body {
   letter-spacing: 0.04em;
   transition: border-color 0.22s, color 0.22s, background 0.22s, transform 0.18s;
   text-decoration: none;
+  font-family: var(--font-secondary);
 }
 .btn-outline:hover {
   background: var(--cream);
@@ -286,6 +318,7 @@ body {
   letter-spacing: 0.05em;
   transition: background 0.22s, transform 0.18s;
   text-decoration: none;
+  font-family: var(--font-secondary);
 }
 .btn-gold:hover {
   background: #ffe87a;
