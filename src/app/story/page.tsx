@@ -51,29 +51,6 @@ export default function StoryPage() {
         </div>
       </section>
 
-      <section className="shell py-10 sm:py-14">
-        <div className="mx-auto grid max-w-5xl gap-5 lg:grid-cols-2">
-          <article className="relative aspect-[16/10]">
-            <Image src="/branding/quote-frame.webp" alt="" fill className="object-contain" sizes="(max-width: 1024px) 100vw, 50vw" />
-            <div className="absolute inset-[21%_16%_20%_16%] flex items-center justify-center">
-              <p className="text-center text-[clamp(0.95rem,1.6vw,1.3rem)] font-semibold leading-[1.35] text-zinc-100">
-                During the early 1880s, the first Syrians emigrated to the U.S., which led to the
-                creation of Little Syria on Washington Street.
-              </p>
-            </div>
-          </article>
-          <article className="relative aspect-[16/10]">
-            <Image src="/branding/quote-frame.webp" alt="" fill className="object-contain" sizes="(max-width: 1024px) 100vw, 50vw" />
-            <div className="absolute inset-[21%_16%_20%_16%] flex items-center justify-center">
-              <p className="text-center text-[clamp(0.95rem,1.6vw,1.3rem)] font-semibold leading-[1.35] text-zinc-100">
-                The first Koreans arrived in 1884, followed by more in 1903. They established
-                Korean communities in Queens and Manhattan.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <StoryMapParallax />
 
       <section className="shell section-pad">
@@ -93,10 +70,10 @@ export default function StoryPage() {
               </p>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 <div className="relative h-28 rounded-xl overflow-hidden border border-[rgba(240,217,168,0.1)] bg-[#0b0b0b]">
-                  <Image src="/illustrations/SyKo-08.webp" alt="Syrian heritage" fill className="object-contain p-3 illus opacity-70" />
+                  <Image src="/illustrations/SyKo-08.webp" alt="Syrian heritage" fill className="object-contain p-1.5 illus opacity-80 scale-250" />
                 </div>
                 <div className="relative h-28 rounded-xl overflow-hidden border border-[rgba(240,217,168,0.1)] bg-[#0b0b0b]">
-                  <Image src="/illustrations/SyKo-07.webp" alt="Korean heritage" fill className="object-contain p-3 illus opacity-70" />
+                  <Image src="/illustrations/SyKo-07.webp" alt="Korean heritage" fill className="object-contain p-1.5 illus opacity-80 scale-250" />
                 </div>
               </div>
             </div>
@@ -107,7 +84,7 @@ export default function StoryPage() {
                 {storyTimeline[2].detail} {storyTimeline[3].detail}
               </p>
               <div className="mt-5 relative h-40 rounded-xl overflow-hidden border border-[rgba(240,217,168,0.1)]">
-                <Image src="/illustrations/SyKo-06.webp" alt="SYKO restaurant" fill className="object-contain p-4 illus opacity-75" />
+                <Image src="/illustrations/SyKo-06.webp" alt="SYKO restaurant" fill className="object-contain p-2 illus opacity-85 scale-220" />
               </div>
             </div>
           </div>

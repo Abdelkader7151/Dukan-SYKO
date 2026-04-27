@@ -40,8 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Large assets (excluded from git to keep repo size manageable)
-# Collaborators can download these from the project assets or contact the maintainer
-public/maps/syki-story-map.png
+# local artifacts
+out.zip
 public/docs/syki-map-story.pdf
-public/maps/syki-story-map.pdf
+

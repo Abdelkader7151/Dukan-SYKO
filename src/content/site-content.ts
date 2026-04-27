@@ -24,12 +24,23 @@ export const sharedHighlights = [
   "Market-first pantry categories",
 ];
 
+export const sharedContact = {
+  streetAddress: "214a Prospect Park W",
+  addressLocality: "Brooklyn",
+  addressRegion: "NY",
+  postalCode: "11215",
+  addressCountry: "US",
+  address: "214a Prospect Park W, Brooklyn, NY 11215, United States",
+  phone: "(929) 441-4306",
+  phoneE164: "+19294414306",
+};
+
 export const restaurantInfo = {
   title: "SYKO Restaurant",
   description:
     "A modern Syrian-Korean restaurant experience with dine-in, delivery, and takeout rooted in warmth and craft.",
-  address: "214a Prospect Park W, Brooklyn, NY 11215, United States",
-  phone: "(929) 441-4306",
+  address: sharedContact.address,
+  phone: sharedContact.phone,
   email: "brooklynsyko@gmail.com",
   hours: [
     "Tuesday - Sunday: 11:00 AM - 10:00 PM",
@@ -701,8 +712,8 @@ export const dukanInfo = {
   title: "Dukan SYKO Marketplace",
   description:
     "A neighborhood dukan where Middle Eastern and Asian grocery culture meet in curated categories and weekly finds.",
-  address: "214a Prospect Park W, Brooklyn, NY 11215, United States",
-  phone: "(929) 441-4306",
+  address: sharedContact.address,
+  phone: sharedContact.phone,
   email: "brooklyndukan@gmail.com",
   hours: ["Daily: 9:00 AM - 10:00 PM"],
   categories: [

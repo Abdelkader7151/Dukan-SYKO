@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { StreetExperience } from "@/components/street-experience";
+import { dukanInfo, restaurantInfo, sharedContact } from "@/content/site-content";
 
 export const metadata: Metadata = {
   title: "SYKO",
@@ -16,14 +17,14 @@ const localBusinessSchema = {
       servesCuisine: ["Syrian", "Korean", "Halal", "Middle Eastern"],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "214a Prospect Park W",
-        addressLocality: "Brooklyn",
-        addressRegion: "NY",
-        postalCode: "11215",
-        addressCountry: "US",
+        streetAddress: sharedContact.streetAddress,
+        addressLocality: sharedContact.addressLocality,
+        addressRegion: sharedContact.addressRegion,
+        postalCode: sharedContact.postalCode,
+        addressCountry: sharedContact.addressCountry,
       },
-      telephone: "+1-929-441-4306",
-      email: "brooklynsyko@gmail.com",
+      telephone: sharedContact.phoneE164,
+      email: restaurantInfo.email,
       url: "https://www.sykobrooklyn.com/restaurant",
     },
     {
@@ -31,14 +32,14 @@ const localBusinessSchema = {
       name: "Dukan SYKO Marketplace",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "214a Prospect Park W",
-        addressLocality: "Brooklyn",
-        addressRegion: "NY",
-        postalCode: "11215",
-        addressCountry: "US",
+        streetAddress: sharedContact.streetAddress,
+        addressLocality: sharedContact.addressLocality,
+        addressRegion: sharedContact.addressRegion,
+        postalCode: sharedContact.postalCode,
+        addressCountry: sharedContact.addressCountry,
       },
-      telephone: "+1-929-441-4306",
-      email: "brooklyndukan@gmail.com",
+      telephone: sharedContact.phoneE164,
+      email: dukanInfo.email,
       url: "https://www.sykobrooklyn.com/dukan",
     },
   ],

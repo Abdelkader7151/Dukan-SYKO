@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { sharedContact } from "@/content/site-content";
 
 export const metadata: Metadata = {
   title: "Contact | SYKO",
   description: "Reach SYKO at our Brooklyn location.",
 };
 
-const phoneNumber = "(929) 441-4306";
-const phoneHref = "+19294414306";
-const address = "214a Prospect Park W, Brooklyn, NY 11215, United States";
 const mapEmbedSrc =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d285.9233732835219!2d-73.9806640881821!3d40.66029012984064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b78ea7bc5e9%3A0x68f09419701d57d7!2sDukan%20SYKO%20Marketplace!5e0!3m2!1sen!2seg!4v1777281327867!5m2!1sen!2seg";
 
@@ -27,12 +25,12 @@ export default function ContactPage() {
           <article className="card card-red p-8 text-center">
             <p className="eyebrow mb-4">Reach Us</p>
             <a
-              href={`tel:${phoneHref}`}
+              href={`tel:${sharedContact.phoneE164}`}
               className="block font-brand text-4xl tracking-[0.08em] text-[#cc2200] hover:text-[#f0d9a8] transition-colors"
             >
-              {phoneNumber}
+              {sharedContact.phone}
             </a>
-            <p className="mt-4 text-[#f0d9a8] text-base leading-relaxed">{address}</p>
+            <p className="mt-4 text-[#f0d9a8] text-base leading-relaxed">{sharedContact.address}</p>
           </article>
 
           <section className="card overflow-hidden">

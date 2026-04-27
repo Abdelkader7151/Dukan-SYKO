@@ -37,9 +37,45 @@ export function StoryMapParallax() {
         fill className="object-contain object-center opacity-25" sizes="100vw" />
       {/* Gradients */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]">
+        <div className="absolute inset-0 z-10 px-4 py-4 sm:px-8 sm:py-6">
+          <div className="mx-auto grid h-full max-w-5xl place-items-center gap-4 lg:grid-cols-2 lg:gap-6">
+            <article className="relative w-full max-w-[520px] aspect-[16/9]">
+              <Image
+                src="/branding/quote-frame.webp"
+                alt=""
+                fill
+                className="object-contain drop-shadow-[0_24px_70px_rgba(0,0,0,0.65)]"
+                sizes="(max-width: 1024px) 100vw, 520px"
+              />
+              <div className="absolute inset-[21%_16%_20%_16%] flex items-center justify-center">
+                <p className="text-center text-[clamp(1.05rem,1.8vw,1.45rem)] font-semibold leading-[1.35] text-white drop-shadow-[0_3px_16px_rgba(0,0,0,0.9)]">
+                  During the early 1880s, the first Syrians emigrated to the U.S., which led to the
+                  creation of Little Syria on Washington Street.
+                </p>
+              </div>
+            </article>
+
+            <article className="relative w-full max-w-[520px] aspect-[16/9]">
+              <Image
+                src="/branding/quote-frame.webp"
+                alt=""
+                fill
+                className="object-contain drop-shadow-[0_24px_70px_rgba(0,0,0,0.65)]"
+                sizes="(max-width: 1024px) 100vw, 520px"
+              />
+              <div className="absolute inset-[21%_16%_20%_16%] flex items-center justify-center">
+                <p className="text-center text-[clamp(1.05rem,1.8vw,1.45rem)] font-semibold leading-[1.35] text-white drop-shadow-[0_3px_16px_rgba(0,0,0,0.9)]">
+                  The first Koreans arrived in 1884, followed by more in 1903. They established
+                  Korean communities in Queens and Manhattan.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
       {/* Label */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center z-20">
         <p className="eyebrow opacity-80">Syria → Brooklyn ← Korea</p>
       </div>
     </div>

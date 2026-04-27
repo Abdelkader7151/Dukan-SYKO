@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import { useMemo, useState } from "react";
 import type {
   RestaurantMenuCategory,
   RestaurantMenuChoice,
@@ -27,7 +26,6 @@ type RestaurantMenuProps = {
 export default function RestaurantMenu({ items }: RestaurantMenuProps) {
   const [activeFilter, setActiveFilter] = useState<MenuFilter>("All");
   const [activeMenuChoice, setActiveMenuChoice] = useState<MenuChoice>("Syrian Menu");
-  const [showSideFlags, setShowSideFlags] = useState(true);
 
   const menuItems = useMemo(() => {
     return items.filter((item) =>
@@ -50,57 +48,8 @@ export default function RestaurantMenu({ items }: RestaurantMenuProps) {
     return menuItems.filter((item) => item.category === activeFilter);
   }, [activeFilter, menuItems]);
 
-  useEffect(() => {
-    let lastY = window.scrollY;
-
-    const onScroll = () => {
-      const currentY = window.scrollY;
-      if (Math.abs(currentY - lastY) < 8) return;
-
-      // Hide while scrolling down, show while scrolling up.
-      setShowSideFlags(currentY < lastY || currentY < 100);
-      lastY = currentY;
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <section className="shell pb-14 sm:pb-20">
-      <div className="pointer-events-none fixed inset-y-0 left-0 right-0 z-30 hidden xl:block">
-        <div
-          className={`absolute left-3 top-1/2 w-[300px] -translate-y-1/2 transition-all duration-300 ${
-            showSideFlags ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
-          }`}
-        >
-          <div className="relative aspect-[16/10]">
-            <Image src="/branding/quote-frame.webp" alt="" fill className="object-contain" sizes="300px" />
-            <div className="absolute inset-[21%_16%_20%_16%] flex items-center justify-center">
-              <p className="text-center text-base font-semibold leading-6 text-zinc-100">
-                During the early 1880s, the first Syrians emigrated to the U.S., helping shape
-                Little Syria on Washington Street.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          className={`absolute right-3 top-1/2 w-[300px] -translate-y-1/2 transition-all duration-300 ${
-            showSideFlags ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
-          }`}
-        >
-          <div className="relative aspect-[16/10]">
-            <Image src="/branding/quote-frame.webp" alt="" fill className="object-contain" sizes="300px" />
-            <div className="absolute inset-[21%_16%_20%_16%] flex items-center justify-center">
-              <p className="text-center text-base font-semibold leading-6 text-zinc-100">
-                The first Koreans arrived in 1884, followed by more in 1903, establishing Korean
-                Town in Queens and Manhattan.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="mb-6 sm:mb-8">
         <h2 className="section-headline text-[#f0d9a8]">Restaurant Products</h2>
       </div>

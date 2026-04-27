@@ -351,7 +351,7 @@ export function StreetExperience() {
         <div className="shell section-pad relative z-10">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">End of the Street</p>
-            <h2 className="section-headline text-[#f0d9a8]">You've arrived.<br />Come find us.</h2>
+            <h2 className="section-headline text-[#f0d9a8]">You&apos;ve arrived.<br />Come find us.</h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">

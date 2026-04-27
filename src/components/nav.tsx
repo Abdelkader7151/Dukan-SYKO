@@ -11,7 +11,7 @@ export function SiteNav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [inHero, setInHero] = useState(false);
+  const [homeInHero, setHomeInHero] = useState(false);
   const scrollHomeTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (pathname === "/") {
       e.preventDefault();
@@ -25,23 +25,48 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    const t = window.setTimeout(() => setOpen(false), 0);
+    return () => window.clearTimeout(t);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const previousActive = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    const focusFirst = () => {
+      const root = document.getElementById("mobile-menu-dialog");
+      const first = root?.querySelector<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      first?.focus();
+    };
+
+    document.body.style.overflow = "hidden";
+    const t = window.setTimeout(focusFirst, 0);
+
+    return () => {
+      window.clearTimeout(t);
+      document.body.style.overflow = previousOverflow;
+      previousActive?.focus?.();
+    };
+  }, [open]);
 
   useEffect(() => {
     if (pathname !== "/") {
-      setInHero(false);
-      return;
+      const t = window.setTimeout(() => setHomeInHero(false), 0);
+      return () => window.clearTimeout(t);
     }
 
     const hero = document.getElementById("s-hero");
     if (!hero) {
-      setInHero(false);
-      return;
+      const t = window.setTimeout(() => setHomeInHero(false), 0);
+      return () => window.clearTimeout(t);
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setInHero(entry.isIntersecting);
+        setHomeInHero(entry.isIntersecting);
       },
       { threshold: 0.2 },
     );
@@ -50,6 +75,7 @@ export function SiteNav() {
     return () => observer.disconnect();
   }, [pathname]);
 
+  const inHero = pathname === "/" ? homeInHero : false;
   const showNavLogo = pathname !== "/" || !inHero || scrolled;
 
   return (
@@ -122,6 +148,8 @@ export function SiteNav() {
           {/* Mobile burger */}
           <button
             aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu-dialog"
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setOpen((v) => !v)}
           >
@@ -141,30 +169,105 @@ export function SiteNav() {
       {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-40 bg-[#050505]/97 flex flex-col items-center justify-center gap-6 md:hidden"
-          >
-            {siteNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={item.href === "/" ? scrollHomeTop : undefined}
-                className="font-brand text-5xl tracking-[0.12em] text-[#f0d9a8] hover:text-[#cc2200] transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href="tel:+19294414306"
-              className="btn-primary mt-4"
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              aria-hidden="true"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              id="mobile-menu-dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile menu"
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed z-50 top-20 left-4 right-4 md:hidden rounded-2xl border border-[rgba(240,217,168,0.14)] bg-[rgba(5,5,5,0.92)] shadow-[0_24px_80px_rgba(0,0,0,0.6)]"
+              onKeyDown={(e) => {
+                if (e.key === "Escape") {
+                  e.preventDefault();
+                  setOpen(false);
+                  return;
+                }
+
+                if (e.key !== "Tab") return;
+
+                const root = e.currentTarget;
+                const focusables = Array.from(
+                  root.querySelectorAll<HTMLElement>(
+                    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+                  ),
+                ).filter((el) => !el.hasAttribute("disabled") && el.tabIndex !== -1);
+
+                if (focusables.length === 0) return;
+
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+                const active = document.activeElement as HTMLElement | null;
+
+                if (e.shiftKey) {
+                  if (active === first || !root.contains(active)) {
+                    e.preventDefault();
+                    last.focus();
+                  }
+                  return;
+                }
+
+                if (active === last) {
+                  e.preventDefault();
+                  first.focus();
+                }
+              }}
             >
-              Call Restaurant
-            </a>
-          </motion.div>
+              <div className="p-5">
+                <div className="flex items-center justify-between">
+                  <p className="eyebrow">Menu</p>
+                  <button
+                    type="button"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(240,217,168,0.18)] text-[#f0d9a8] hover:bg-[rgba(240,217,168,0.08)] transition-colors"
+                    aria-label="Close menu"
+                    onClick={() => setOpen(false)}
+                  >
+                    <span aria-hidden="true" className="text-2xl leading-none">
+                      ×
+                    </span>
+                  </button>
+                </div>
+
+                <div className="divider-gold my-4" />
+
+                <nav className="flex flex-col gap-4">
+                  {siteNav.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={(e) => {
+                        if (item.href === "/") scrollHomeTop(e);
+                        setOpen(false);
+                      }}
+                      className="font-brand text-3xl tracking-[0.12em] text-[#f0d9a8] hover:text-[#cc2200] transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+
+                <a
+                  href="tel:+19294414306"
+                  className="btn-primary mt-6 w-full justify-center"
+                  onClick={() => setOpen(false)}
+                >
+                  Call Restaurant
+                </a>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
