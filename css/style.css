@@ -1,0 +1,128 @@
+:root {
+  --bg: #050505;
+  --bg-panel: #0e0e0e;
+  --bg-card: #141414;
+  --red: #cc2200;
+  --red-bright: #e63434;
+  --gold: #f5c842;
+  --cream: #f0d9a8;
+  --white: #fafaf8;
+  --muted: #888880;
+  --border: rgba(240, 217, 168, 0.12);
+  --border-red: rgba(204, 34, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.site-navbar {
+  background: rgba(5, 5, 5, 0.92);
+  border-bottom: 1px solid rgba(240, 217, 168, 0.1);
+}
+
+.brand-word {
+  color: var(--red);
+  font-family: "Bebas Neue", "Inter", sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+}
+
+.hero {
+  min-height: 85vh;
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.42), rgba(5, 5, 5, 0.7)),
+    url("/public/illustrations/SyKo-14.webp") center/cover no-repeat;
+}
+
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.section-card-red {
+  border-color: var(--border-red);
+}
+
+.btn-syko {
+  background: var(--red);
+  color: var(--white);
+  border: 1px solid var(--red);
+  border-radius: 999px;
+}
+
+.btn-syko:hover {
+  background: var(--red-bright);
+  color: var(--white);
+}
+
+.btn-outline-syko {
+  border: 1px solid var(--cream);
+  color: var(--cream);
+  border-radius: 999px;
+}
+
+.btn-outline-syko:hover {
+  background: var(--cream);
+  color: var(--bg);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--bg);
+  border-radius: 999px;
+}
+
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--red), transparent);
+  opacity: 0.45;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.page-header {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.5), rgba(5, 5, 5, 0.8)),
+    url("/public/illustrations/SyKo-12.webp") center/cover no-repeat;
+}
+
+.menu-filter-btn {
+  border: 1px solid rgba(240, 217, 168, 0.28);
+  background: #0d0d0d;
+  color: #e5e5e5;
+}
+
+.menu-filter-btn.active {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
+footer {
+  border-top: 1px solid rgba(240, 217, 168, 0.1);
+  background: #0a0a0a;
+}
