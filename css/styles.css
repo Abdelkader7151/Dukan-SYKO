@@ -1823,6 +1823,166 @@ a {
   }
 }
 
+/* ─────────────────────────────────────────
+   Story Section
+───────────────────────────────────────── */
+
+.street-section-story {
+  position: relative;
+}
+
+.story-section-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.75rem, 6.5vw, 4.75rem);
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin: 0;
+}
+
+.story-title-accent {
+  color: var(--red);
+}
+
+/* Chapters */
+.story-chapter {
+  margin-bottom: 0.25rem;
+}
+
+.story-lead {
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.story-body {
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.story-highlight-line {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.story-question {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 700;
+  color: var(--cream);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Thin ornamental divider between chapters */
+.story-divider {
+  width: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0.5;
+  margin: 2rem 0;
+}
+
+/* Milestone cards (2022 / 2024) */
+.story-milestone-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem 1.6rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  margin-bottom: 1.25rem;
+}
+
+.story-milestone-card-red {
+  border-color: var(--border-red);
+  background: linear-gradient(135deg, rgba(204, 34, 0, 0.07), var(--bg-card) 60%);
+}
+
+.story-milestone-card-gold {
+  border-color: rgba(245, 200, 66, 0.18);
+  background: linear-gradient(135deg, rgba(245, 200, 66, 0.06), var(--bg-card) 60%);
+}
+
+.story-milestone-year {
+  flex-shrink: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--red);
+  padding-top: 0.1rem;
+}
+
+.story-milestone-year-gold {
+  color: var(--gold);
+}
+
+/* Philosophy block */
+.story-philosophy-block {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.6rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(245, 200, 66, 0.04);
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.story-philosophy-line {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin: 0 0 0.35rem;
+  line-height: 1.3;
+}
+
+.story-journey {
+  margin-top: 1.25rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+/* Summary quote box */
+.story-summary-box {
+  margin: 0;
+  padding: 2rem 2.25rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(245, 200, 66, 0.22);
+  background: linear-gradient(135deg, rgba(245, 200, 66, 0.06) 0%, rgba(204, 34, 0, 0.05) 100%);
+  position: relative;
+}
+
+.story-summary-box::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.5rem;
+  left: 1.5rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.25;
+}
+
+.story-summary-text {
+  margin: 0;
+  font-size: clamp(0.97rem, 1.6vw, 1.1rem);
+  line-height: 1.85;
+  color: var(--cream);
+  font-style: italic;
+  font-weight: 500;
+}
+
 @media (min-width: 768px) {
   .footer-bottom {
     flex-direction: row;
