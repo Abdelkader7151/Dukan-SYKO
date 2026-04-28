@@ -1,8 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap");
+
 @font-face {
   font-family: "SykoHero";
   src: url("../public/fonts/syko-hero.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DastNevis";
+  src:
+    url("../public/fonts/dast-nevis.woff2") format("woff2"),
+    url("../public/fonts/dast-nevis.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -23,6 +35,10 @@
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.55);
   --header-height: 5rem;
   --syko-delay: 0ms;
+  --font-brand: "SykoHero", "Bebas Neue", Impact, sans-serif;
+  --font-latin: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-korean: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  --font-arabic: "DastNevis", "Noto Naskh Arabic", serif;
 }
 
 *,
@@ -38,7 +54,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-latin);
   background: var(--bg);
   color: var(--white);
   -webkit-font-smoothing: antialiased;
@@ -84,7 +100,7 @@ a {
 }
 
 .eyebrow {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 0.8rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -92,7 +108,7 @@ a {
 }
 
 .page-title {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: clamp(4.25rem, 10vw, 7rem);
   line-height: 0.92;
   letter-spacing: 0.06em;
@@ -123,7 +139,7 @@ a {
 
 .syko-word-street {
   margin: 0;
-  font-family: "SykoHero", "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: clamp(4.25rem, 19vw, 11rem);
   line-height: 0.92;
   color: #cc3333;
@@ -133,7 +149,7 @@ a {
 
 .syko-subword,
 .dukan-subword {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   line-height: 1;
 }
 
@@ -150,7 +166,7 @@ a {
 }
 
 .hero-sub-accent {
-  font-family: "SykoHero", "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   color: #cc3333;
   font-style: italic;
   font-weight: 700;
@@ -379,7 +395,7 @@ a {
 }
 
 .mobile-nav-link {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 2rem;
   letter-spacing: 0.12em;
   color: var(--cream);
@@ -487,8 +503,9 @@ a {
 }
 
 .hero-logo-wrap {
-  width: clamp(7rem, 16vw, 11rem);
-  margin-bottom: 1rem;
+  width: clamp(25rem, 20vw, 80rem);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
 }
 
 .hero-logo {
@@ -670,7 +687,7 @@ a {
 
 .walk-title {
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: clamp(2.75rem, 7vw, 4rem);
   letter-spacing: 0.08em;
   color: var(--cream);
@@ -938,7 +955,7 @@ a {
 
 .story-timeline-year {
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 1.9rem;
   letter-spacing: 0.15em;
   color: var(--red);
@@ -1012,7 +1029,7 @@ a {
 
 .contact-phone-display {
   display: block;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: clamp(2.2rem, 6vw, 3rem);
   letter-spacing: 0.08em;
   color: var(--red);
@@ -1107,7 +1124,7 @@ a {
 
 .contact-map-title {
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 2rem;
   letter-spacing: 0.08em;
   color: var(--cream);
@@ -1231,7 +1248,7 @@ a {
 
 .visit-banner-title {
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 2.5rem;
   letter-spacing: 0.1em;
   color: var(--red);
@@ -1339,7 +1356,7 @@ a {
 }
 
 .choice-label-syrian {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   letter-spacing: 0.08em;
   color: var(--cream);
   font-size: 1.1rem;
@@ -1459,7 +1476,7 @@ a {
 .menu-price,
 .market-card-price {
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 2rem;
   line-height: 1;
   letter-spacing: 0.06em;
@@ -1587,7 +1604,7 @@ a {
 
 .destination-title {
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 2.75rem;
   letter-spacing: 0.08em;
 }
@@ -1642,7 +1659,7 @@ a {
 }
 
 .footer-brand-word {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 2rem;
   letter-spacing: 0.1em;
   color: var(--red);
@@ -1832,7 +1849,7 @@ a {
 }
 
 .story-section-title {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: clamp(2.75rem, 6.5vw, 4.75rem);
   line-height: 0.95;
   letter-spacing: 0.06em;
@@ -1914,7 +1931,7 @@ a {
 
 .story-milestone-year {
   flex-shrink: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 2.5rem;
   line-height: 1;
   letter-spacing: 0.04em;
@@ -1945,7 +1962,7 @@ a {
 
 .story-journey {
   margin-top: 1.25rem;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 1.35rem;
   letter-spacing: 0.18em;
   color: var(--gold);
@@ -1967,11 +1984,36 @@ a {
   position: absolute;
   top: -0.5rem;
   left: 1.5rem;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-brand);
   font-size: 5rem;
   line-height: 1;
   color: var(--gold);
   opacity: 0.25;
+}
+
+/* Dedicated language-font utilities */
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+.font-latin {
+  font-family: var(--font-latin);
+}
+
+.font-korean {
+  font-family: var(--font-korean);
+  letter-spacing: 0.04em;
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+/* Korean-related sections / labels */
+.choice-label-korean,
+.korean-text,
+.korean-section {
+  font-family: var(--font-korean);
 }
 
 .story-summary-text {
