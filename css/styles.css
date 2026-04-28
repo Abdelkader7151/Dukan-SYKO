@@ -503,14 +503,11 @@ a {
 }
 
 .hero-logo-wrap {
-<<<<<<< HEAD
   width: clamp(14rem, 23vw, 18rem);
   margin-bottom: 1rem;
-=======
   width: clamp(25rem, 20vw, 80rem);
   margin-top: 0;
   margin-bottom: 0.75rem;
->>>>>>> e8e174c184dacf1549c0a314b549ec03ffe6e7eb
 }
 
 .hero-logo {
