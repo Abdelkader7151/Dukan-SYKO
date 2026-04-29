@@ -1,4 +1,6 @@
 (function () {
+  const dukanQuantities = {};
+
   function escapeHtml(value) {
     return String(value)
       .replace(/&/g, "&amp;")
@@ -34,14 +36,44 @@
                 '<p class="market-card-price">' + escapeHtml(item.price) + '</p>' +
               "</div>" +
               '<p class="market-card-tag">' + escapeHtml(item.tag) + '</p>' +
-              '<div class="menu-card-actions">' +
-                '<button type="button" class="btn btn-syko-gold btn-sm-card">Add to Cart</button>' +
-                '<a href="tel:+19294414306" class="btn btn-syko-outline btn-sm-card">Call</a>' +
+              '<div class="menu-card-actions cart-controls">' +
+                '<button type="button" class="btn btn-syko-gold btn-sm-card js-add-to-cart" data-key="' + escapeHtml(item.name) + '">Add to cart</button>' +
+                '<div class="qty-selector" data-key="' + escapeHtml(item.name) + '">' +
+                  '<button type="button" class="qty-btn js-qty-dec" data-key="' + escapeHtml(item.name) + '">-</button>' +
+                  '<span class="qty-value">' + (dukanQuantities[item.name] || 1) + '</span>' +
+                  '<button type="button" class="qty-btn js-qty-inc" data-key="' + escapeHtml(item.name) + '">+</button>' +
+                "</div>" +
               "</div>" +
             "</div>" +
           "</article>"
         );
       }).join("");
+
+      featuredRoot.querySelectorAll(".js-qty-inc").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const key = button.getAttribute("data-key");
+          dukanQuantities[key] = (dukanQuantities[key] || 1) + 1;
+          initDukanPage();
+        });
+      });
+
+      featuredRoot.querySelectorAll(".js-qty-dec").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const key = button.getAttribute("data-key");
+          const current = dukanQuantities[key] || 1;
+          dukanQuantities[key] = current > 1 ? current - 1 : 1;
+          initDukanPage();
+        });
+      });
+
+      featuredRoot.querySelectorAll(".js-add-to-cart").forEach(function (button) {
+        button.addEventListener("click", function () {
+          button.textContent = "Added";
+          setTimeout(function () {
+            button.textContent = "Add to cart";
+          }, 900);
+        });
+      });
     }
   }
 

@@ -3,6 +3,9 @@
     const animatedItems = document.querySelectorAll("[data-animate]");
     if (!animatedItems.length) return;
 
+    /* threshold 0: long single-column blocks (restaurant menu, dukan grid) often have
+       less than 15% of their total height in the viewport on mobile, so threshold 0.15
+       never fired and [data-animate] stayed opacity:0. */
     const observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -15,7 +18,7 @@
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0, rootMargin: "0px 0px 8% 0px" }
     );
 
     animatedItems.forEach(function (item) {

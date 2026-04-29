@@ -19,6 +19,7 @@
     crossorigin="anonymous"
   >
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="page-contact">
   <div data-include="navigation.html"></div>
@@ -35,55 +36,42 @@
         </header>
 
         <div class="row g-4 align-items-stretch">
-          <div class="col-lg-5" data-animate data-delay="80">
+          <div class="col-12" data-animate data-delay="80">
             <article class="info-panel contact-info-panel h-100">
-              <p class="eyebrow mb-3">Business Info</p>
-              <a href="tel:+19294414306" class="contact-phone-display">(929) 441-4306</a>
-              <p class="contact-address-display">214a Prospect Park W, Brooklyn, NY 11215, United States</p>
-              <a href="mailto:brooklynsyko@gmail.com" class="info-link">brooklynsyko@gmail.com</a>
-
-              <div class="contact-hours-grid">
-                <div>
-                  <p class="footer-hours-label">Restaurant</p>
-                  <div class="footer-hours-copy">
-                    <p>Tuesday - Sunday: 11:00 AM - 10:00 PM</p>
-                    <p>Weekend brunch specials until 2:30 PM</p>
-                    <p>Closed Monday</p>
-                  </div>
+              <p class="eyebrow mb-4">Business Info</p>
+              <div class="contact-info-grid">
+                <div class="contact-card">
+                  <i class="fas fa-phone contact-icon"></i>
+                  <h3 class="contact-card-title">Phone</h3>
+                  <a href="tel:+19294414306" class="contact-card-link">(929) 441-4306</a>
                 </div>
-                <div>
-                  <p class="footer-hours-label">Dukan</p>
-                  <div class="footer-hours-copy">
-                    <p>Daily: 9:00 AM - 10:00 PM</p>
+                <div class="contact-card">
+                  <i class="fas fa-map-marker-alt contact-icon"></i>
+                  <h3 class="contact-card-title">Address</h3>
+                  <p class="contact-card-text">214a Prospect Park W, Brooklyn, NY 11215, United States</p>
+                </div>
+                <div class="contact-card">
+                  <i class="fas fa-envelope contact-icon"></i>
+                  <h3 class="contact-card-title">Email</h3>
+                  <a href="mailto:brooklynsyko@gmail.com" class="contact-card-link">brooklynsyko@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                  <i class="fas fa-clock contact-icon"></i>
+                  <h3 class="contact-card-title">Hours</h3>
+                  <div class="contact-hours">
+                    <div class="contact-hours-section">
+                      <p class="contact-hours-label">Restaurant</p>
+                      <p>Tuesday - Sunday: 11:00 AM - 10:00 PM</p>
+                      <p>Weekend brunch specials until 2:30 PM</p>
+                      <p>Closed Monday</p>
+                    </div>
+                    <div class="contact-hours-section">
+                      <p class="contact-hours-label">Dukan</p>
+                      <p>Daily: 9:00 AM - 10:00 PM</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </article>
-          </div>
-
-          <div class="col-lg-7" data-animate data-delay="140">
-            <article class="info-panel h-100">
-              <p class="eyebrow mb-3">Send a Message</p>
-              <form id="contact-form" class="contact-form" novalidate>
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label for="contact-name" class="form-label">Name</label>
-                    <input id="contact-name" name="name" type="text" class="form-control syko-input" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="contact-email" class="form-label">Email</label>
-                    <input id="contact-email" name="email" type="email" class="form-control syko-input" required>
-                  </div>
-                  <div class="col-12">
-                    <label for="contact-message" class="form-label">Message</label>
-                    <textarea id="contact-message" name="message" class="form-control syko-input syko-textarea" rows="6" required></textarea>
-                  </div>
-                </div>
-                <div class="contact-form-actions">
-                  <button type="submit" class="btn btn-syko-primary">Send Message</button>
-                  <p id="contact-form-status" class="contact-form-status" aria-live="polite"></p>
-                </div>
-              </form>
             </article>
           </div>
         </div>

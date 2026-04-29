@@ -31,19 +31,45 @@
         const file = target.getAttribute("data-include");
         if (!file) return;
 
-        const response = await fetch(file);
-        if (!response.ok) {
-          throw new Error("Failed to load include: " + file);
+        try {
+          const response = await fetch(file);
+          if (!response.ok) {
+            throw new Error("Failed to load include: " + file);
+          }
+          target.innerHTML = await response.text();
+        } catch (error) {
+          console.warn("Include skipped:", file, error);
         }
-
-        target.innerHTML = await response.text();
       })
     );
+  }
+
+  function enableImageFallbacks() {
+    const images = document.querySelectorAll('img[src$=".webp"]');
+    images.forEach(function (img) {
+      img.addEventListener("error", function onError() {
+        const current = img.getAttribute("src") || "";
+        if (current.endsWith(".webp")) {
+          img.setAttribute("src", current.replace(/\.webp$/i, ".png"));
+          return;
+        }
+        if (current.endsWith(".png")) {
+          img.setAttribute("src", current.replace(/\.png$/i, ".jpg"));
+          return;
+        }
+        if (current.endsWith(".jpg")) {
+          img.setAttribute("src", current.replace(/\.jpg$/i, ".jpeg"));
+          return;
+        }
+        img.removeEventListener("error", onError);
+      });
+    });
   }
 
   window.SYKO = window.SYKO || {};
   window.SYKO.utils = {
     clamp: clamp,
+    enableImageFallbacks: enableImageFallbacks,
     loadIncludes: loadIncludes,
     normalizePath: normalizePath,
     setFooterYear: setFooterYear
