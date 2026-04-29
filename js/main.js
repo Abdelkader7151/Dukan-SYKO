@@ -1,6 +1,24 @@
 document.addEventListener("DOMContentLoaded", async function () {
   if (!window.SYKO || !window.SYKO.utils) return;
 
+  const loader = document.getElementById("syko-global-loader");
+  if (loader) {
+    loader.classList.add("is-active");
+    let didCloseLoader = false;
+
+    const closeLoader = function () {
+      if (didCloseLoader) return;
+      didCloseLoader = true;
+      loader.classList.add("is-exit");
+      window.setTimeout(function () {
+        loader.remove();
+      }, 360);
+    };
+
+    window.addEventListener("load", closeLoader, { once: true });
+    window.setTimeout(closeLoader, 2600);
+  }
+
   window.SYKO.utils.enableImageFallbacks();
 
   try {
