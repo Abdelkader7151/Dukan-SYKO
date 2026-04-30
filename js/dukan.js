@@ -68,10 +68,27 @@
 
       featuredRoot.querySelectorAll(".js-add-to-cart").forEach(function (button) {
         button.addEventListener("click", function () {
-          button.textContent = "Added";
-          setTimeout(function () {
-            button.textContent = "Add to cart";
-          }, 900);
+          const itemName = button.getAttribute("data-key");
+          const quantity = dukanQuantities[itemName] || 1;
+
+          const item = data.featuredItems.find(function (i) {
+            return i.name === itemName;
+          });
+
+          if (item && window.SYKO && window.SYKO.ShoppingCart) {
+            window.SYKO.ShoppingCart.addItem({
+              id: itemName,
+              name: item.name,
+              price: item.price,
+              quantity: quantity,
+              source: "dukan"
+            });
+
+            button.textContent = "Added!";
+            setTimeout(function () {
+              button.textContent = "Add to cart";
+            }, 900);
+          }
         });
       });
     }

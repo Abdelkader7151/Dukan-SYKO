@@ -169,10 +169,31 @@
 
       root.querySelectorAll(".js-add-to-cart").forEach(function (button) {
         button.addEventListener("click", function () {
-          button.textContent = "Added";
-          setTimeout(function () {
-            button.textContent = "Add to cart";
-          }, 900);
+          const key = button.getAttribute("data-key");
+          const parts = key.split("|");
+          const menuChoice = parts[0];
+          const category = parts[1];
+          const itemName = parts[2];
+          const quantity = quantities[key] || 1;
+
+          const item = data.menuItems.find(function (i) {
+            return i.name === itemName && i.category === category && i.menuChoice === menuChoice;
+          });
+
+          if (item && window.SYKO && window.SYKO.ShoppingCart) {
+            window.SYKO.ShoppingCart.addItem({
+              id: key,
+              name: item.name,
+              price: item.price,
+              quantity: quantity,
+              source: "restaurant"
+            });
+
+            button.textContent = "Added!";
+            setTimeout(function () {
+              button.textContent = "Add to cart";
+            }, 900);
+          }
         });
       });
     }
