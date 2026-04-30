@@ -17,18 +17,25 @@
     }
 
     function openMenu() {
+      // Prevent multiple rapid toggles
+      if (header.classList.contains("menu-open")) return;
+      
       header.classList.add("menu-open");
       if (toggleButton) toggleButton.setAttribute("aria-expanded", "true");
       if (panel) panel.hidden = false;
       if (overlay) overlay.hidden = false;
       document.body.classList.add("menu-open");
+      
+      // Focus first link for accessibility
       const firstLink = panel ? panel.querySelector(".mobile-nav-link") : null;
       if (firstLink) {
-        firstLink.focus();
+        setTimeout(() => firstLink.focus(), 50);
       }
     }
 
     function closeMenu() {
+      if (!header.classList.contains("menu-open")) return;
+      
       header.classList.remove("menu-open");
       if (toggleButton) toggleButton.setAttribute("aria-expanded", "false");
       if (panel) panel.hidden = true;
@@ -36,7 +43,9 @@
       document.body.classList.remove("menu-open");
     }
 
-    function toggleMenu() {
+    function toggleMenu(event) {
+      event.preventDefault();
+      event.stopPropagation();
       if (header.classList.contains("menu-open")) {
         closeMenu();
       } else {
@@ -52,12 +61,12 @@
       }
     }
 
+    // Set active nav link
     links.forEach(function (link) {
       const href = link.getAttribute("href");
       if (href === currentPath || (currentPath === "index.html" && href === "index.html")) {
         link.classList.add("is-active");
       }
-
       link.addEventListener("click", function () {
         closeMenu();
       });
@@ -67,16 +76,20 @@
       link.addEventListener("click", smoothScrollTop);
     });
 
+    // Use both click and touchstart for faster response on mobile
     if (toggleButton) {
       toggleButton.addEventListener("click", toggleMenu);
+      toggleButton.addEventListener("touchstart", toggleMenu, { passive: false });
     }
 
     if (closeButton) {
       closeButton.addEventListener("click", closeMenu);
+      closeButton.addEventListener("touchstart", closeMenu);
     }
 
     if (overlay) {
       overlay.addEventListener("click", closeMenu);
+      overlay.addEventListener("touchstart", closeMenu);
     }
 
     window.addEventListener("scroll", syncScrolledState, { passive: true });
@@ -92,6 +105,7 @@
       }
     });
 
+    // Hero header visibility observer
     if (hero) {
       const observer = new IntersectionObserver(
         function (entries) {
@@ -100,7 +114,6 @@
         },
         { threshold: 0.2 }
       );
-
       observer.observe(hero);
 
       window.addEventListener(

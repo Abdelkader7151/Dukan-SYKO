@@ -52,7 +52,6 @@
         if (activeChoice === "Syrian Menu") {
           return !item.menuChoice || item.menuChoice === "Syrian Menu";
         }
-
         return item.menuChoice === activeChoice;
       });
     }
@@ -60,7 +59,6 @@
     function getAvailableCategories(items) {
       const categoryOrder = categoryOrderByChoice[activeChoice] || [];
       return categoryOrder.filter(function (category) {
-        if (category === "SYKO Plate") return true;
         return items.some(function (item) {
           return item.category === category;
         });
@@ -79,6 +77,18 @@
       if (activeFilter !== "All" && !availableCategories.includes(activeFilter)) {
         activeFilter = "All";
         return render();
+      }
+
+      // Check if current filtered category is empty and not "All"
+      let emptyMessage = "";
+      if (activeFilter !== "All" && filteredItems.length === 0) {
+        emptyMessage = `
+          <div class="text-center py-5 my-4" style="grid-column: 1/-1;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🍽️</div>
+            <p style="color: var(--cream); font-size: 1.1rem; font-weight: 500;">We will add items to this category soon!</p>
+            <p style="color: var(--muted); font-size: 0.85rem;">Check back later for delicious new dishes.</p>
+          </div>
+        `;
       }
 
       root.innerHTML =
@@ -101,40 +111,43 @@
         "</div>" +
         '<p class="menu-meta">' + escapeHtml(activeChoice) + ' · ' + escapeHtml(activeFilter === "All" ? "All Categories" : activeFilter) + ' · ' + filteredItems.length + ' items</p>' +
         '<div class="menu-grid">' +
-          filteredItems.map(function (item) {
-            const tags = item.tags && item.tags.length
-              ? '<div class="tag-list">' + item.tags.map(function (tag) {
-                  return '<span class="tag-chip">' + escapeHtml(tag) + "</span>";
-                }).join("") + "</div>"
-              : "";
+          (filteredItems.length === 0 && activeFilter !== "All" ? emptyMessage :
+            filteredItems.map(function (item) {
+              const tags = item.tags && item.tags.length
+                ? '<div class="tag-list">' + item.tags.map(function (tag) {
+                    return '<span class="tag-chip">' + escapeHtml(tag) + "</span>";
+                  }).join("") + "</div>"
+                : "";
 
-            const note = item.note ? '<p class="menu-note">' + escapeHtml(item.note) + "</p>" : "";
+              const note = item.note ? '<p class="menu-note">' + escapeHtml(item.note) + "</p>" : "";
 
-            return (
-              '<article class="menu-card">' +
-                '<div class="menu-card-head">' +
-                  '<div>' +
-                    '<p class="menu-category-label">' + escapeHtml(item.category) + '</p>' +
-                    '<h3 class="menu-item-title">' + escapeHtml(item.name) + '</h3>' +
+              return (
+                '<article class="menu-card">' +
+                  '<div class="menu-card-head">' +
+                    '<div>' +
+                      '<p class="menu-category-label">' + escapeHtml(item.category) + '</p>' +
+                      '<h3 class="menu-item-title">' + escapeHtml(item.name) + '</h3>' +
+                    '</div>' +
+                    '<p class="menu-price">' + escapeHtml(item.price) + '</p>' +
                   '</div>' +
-                  '<p class="menu-price">' + escapeHtml(item.price) + '</p>' +
-                '</div>' +
-                '<p class="menu-description">' + escapeHtml(item.description) + '</p>' +
-                note +
-                tags +
-                '<div class="menu-card-actions cart-controls">' +
-                  '<button type="button" class="btn btn-syko-primary btn-sm-card js-add-to-cart" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">Add to cart</button>' +
-                  '<div class="qty-selector" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">' +
-                    '<button type="button" class="qty-btn js-qty-dec" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">-</button>' +
-                    '<span class="qty-value">' + (quantities[item.menuChoice + "|" + item.category + "|" + item.name] || 1) + '</span>' +
-                    '<button type="button" class="qty-btn js-qty-inc" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">+</button>' +
-                  "</div>" +
-                '</div>' +
-              '</article>'
-            );
-          }).join("") +
+                  '<p class="menu-description">' + escapeHtml(item.description) + '</p>' +
+                  note +
+                  tags +
+                  '<div class="menu-card-actions cart-controls">' +
+                    '<button type="button" class="btn btn-syko-primary btn-sm-card js-add-to-cart" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">Add to cart</button>' +
+                    '<div class="qty-selector" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">' +
+                      '<button type="button" class="qty-btn js-qty-dec" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">-</button>' +
+                      '<span class="qty-value">' + (quantities[item.menuChoice + "|" + item.category + "|" + item.name] || 1) + '</span>' +
+                      '<button type="button" class="qty-btn js-qty-inc" data-key="' + escapeHtml(item.menuChoice + "|" + item.category + "|" + item.name) + '">+</button>' +
+                    "</div>" +
+                  '</div>' +
+                '</article>'
+              );
+            }).join("")
+          ) +
         "</div>";
 
+      // Re-attach event listeners (same as before)
       root.querySelectorAll("[data-choice]").forEach(function (button) {
         button.addEventListener("click", function () {
           activeChoice = button.getAttribute("data-choice");

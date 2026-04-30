@@ -35,6 +35,7 @@
   <div data-include="navigation.html"></div>
 
   <main>
+    <!-- Hero section with image on the right -->
     <section class="interior-hero interior-hero-dukan">
       <div class="hero-layer hero-pattern">
         <img src="public/illustrations/SyKo-14.webp" alt="" class="hero-cover">
@@ -43,25 +44,28 @@
       <div class="hero-ornament hero-ornament-left d-none d-lg-block hero-ornament-temple">
         <img src="public/illustrations/SyKo-07.webp" alt="">
       </div>
-      <div class="hero-ornament hero-ornament-right d-none d-md-block hero-ornament-dukan">
-        <img src="public/branding/dukan-syko-from-pdf.webp" alt="Dukan SYKO logo">
-      </div>
-      <div class="hero-ornament hero-ornament-right d-none d-md-block hero-ornament-dukan-photo">
-        <img src="public/illustrations/dukandef.webp" alt="Dukan SYKO marketplace display">
-      </div>
 
       <div class="section-shell position-relative z-1">
-        <div class="interior-hero-copy" data-animate data-delay="0">
-          <p class="eyebrow mb-3">Marketplace</p>
-          <h1 class="page-title mb-0">Dukan SYKO</h1>
-          <p class="dukan-subword mt-2">Middle Eastern &amp; Asian Marketplace</p>
-          <p class="interior-description">
-            Shop for Middle Eastern and Asian pantry essentials, weekly sales, and new arrivals at Dukan SYKO Marketplace.
-          </p>
+        <!-- Two-column layout inside hero -->
+        <div class="hero-two-columns">
+          <!-- Left: text -->
+          <div class="hero-left-copy" data-animate data-delay="0">
+            <p class="eyebrow mb-3">Marketplace</p>
+            <h1 class="page-title mb-0">Dukan SYKO</h1>
+            <p class="dukan-subword mt-2">Middle Eastern &amp; Asian Marketplace</p>
+            <p class="interior-description">
+              Shop for Middle Eastern and Asian pantry essentials, weekly sales, and new arrivals at Dukan SYKO Marketplace.
+            </p>
+          </div>
+          <!-- Right: floating sign -->
+          <div class="hero-right-image" data-animate data-delay="50">
+            <img src="public/illustrations/DukanSYKO.webp" alt="Dukan SYKO sign" class="hero-sign-img">
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Featured market picks section (no extra image here now) -->
     <section class="section-shell pb-5 pb-md-6">
       <div class="menu-header" data-animate data-delay="0">
         <p class="eyebrow mb-2">Shop Highlights</p>

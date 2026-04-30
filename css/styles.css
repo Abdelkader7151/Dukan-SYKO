@@ -803,34 +803,63 @@ a {
   opacity: 0.16;
 }
 
-.hero-ornament-dukan {
-  right: 0;
-  top: 50%;
-  bottom: auto;
-  transform: translateY(-50%);
-  width: 20rem;
-  height: 20rem;
-  opacity: 0.35;
+/* ─────────────────────────────────────────
+   Hero two-column layout for Dukan page
+───────────────────────────────────────── */
+.page-dukan .hero-two-columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 0 1rem;
 }
 
-.page-dukan .interior-hero {
-  overflow: visible;
+.page-dukan .hero-left-copy {
+  flex: 1;
+  min-width: 250px;
 }
 
-.hero-ornament-dukan-photo {
-  right: 0;
-  top: calc(var(--header-height) + 0.5rem);
-  bottom: auto;
-  transform: none;
-  width: min(42vw, 36rem);
-  height: calc(100vh - var(--header-height) - 5rem);
-  max-height: 75vh;
-  opacity: 0.95;
-  z-index: 0;
+.page-dukan .hero-right-image {
+  flex: 0 0 auto;
+  width: min(380px, 45%);
+  max-width: 450px;
+  filter: drop-shadow(8px 12px 20px rgba(0, 0, 0, 0.35));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.page-dukan .hero-ornament-dukan-photo img {
-  object-fit: cover;
+.page-dukan .hero-right-image:hover {
+  transform: translateY(-6px) rotate(1deg);
+  filter: drop-shadow(12px 16px 28px rgba(0, 0, 0, 0.45));
+}
+
+.page-dukan .hero-sign-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  background: transparent;
+}
+
+/* Make the image bigger on desktop without touching margins/padding */
+@media (min-width: 992px) {
+  .page-dukan .hero-right-image {
+    width: min(480px, 50%);
+    max-width: 550px;
+  }
+}
+
+/* On mobile, stack vertically */
+@media (max-width: 767.98px) {
+  .page-dukan .hero-two-columns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .page-dukan .hero-right-image {
+    width: 80%;
+    max-width: 320px;
+    align-self: center;
+  }
 }
 
 .about-bg {
@@ -1705,7 +1734,7 @@ a {
 .qty-btn {
   width: 1.7rem;
   height: 1.7rem;
-  border: 1px solid rgba(240, 217, 168, 0.3);
+  border: none;
   border-radius: 999px;
   background: transparent;
   color: var(--cream);
@@ -1723,29 +1752,35 @@ a {
 }
 
 /* Restaurant quantity controls (red theme) */
+.page-restaurant .qty-selector,
 .menu-card .qty-selector {
   border-color: rgba(204, 34, 0, 0.5);
+  background: rgba(204, 34, 0, 0.16);
 }
 
+.page-restaurant .qty-btn,
 .menu-card .qty-btn {
-  border-color: rgba(204, 34, 0, 0.6);
   color: var(--red);
 }
 
+.page-restaurant .qty-value,
 .menu-card .qty-value {
   color: var(--red);
 }
 
 /* Dukan quantity controls (gold theme) */
+.page-dukan .qty-selector,
 .market-card .qty-selector {
   border-color: rgba(245, 200, 66, 0.45);
+  background: rgba(245, 200, 66, 0.16);
 }
 
+.page-dukan .qty-btn,
 .market-card .qty-btn {
-  border-color: rgba(245, 200, 66, 0.55);
   color: var(--gold);
 }
 
+.page-dukan .qty-value,
 .market-card .qty-value {
   color: var(--gold);
 }
@@ -3103,16 +3138,16 @@ a {
    Shopping Cart System
 ───────────────────────────────────────── */
 
-/* Cart Icon (Fixed Position) */
+/* Cart Icon (Fixed Position) - Removed yellow border */
 .shopping-cart-icon {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 99;
+  z-index: 1101;
   width: 3.5rem;
   height: 3.5rem;
   background: linear-gradient(135deg, var(--red), var(--red-bright));
-  border: 2px solid var(--gold);
+  border: none; /* Removed yellow border */
   border-radius: 50%;
   color: var(--white);
   display: flex;
@@ -3158,7 +3193,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 1100;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -3253,25 +3288,22 @@ a {
   font-size: 0.95rem;
 }
 
-/* Cart Item */
+/* Cart Item - Fixed alignment */
 .cart-item {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   padding: 0.9rem;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 0.75rem;
   transition: border-color 0.2s ease;
 }
 
-.cart-item:hover {
-  border-color: var(--border-strong);
-}
-
 .cart-item-info {
-  grid-column: 1 / 2;
+  flex: 2;
+  min-width: 120px;
 }
 
 .cart-item-name {
@@ -3293,6 +3325,7 @@ a {
   font-weight: 600;
   color: var(--gold);
   white-space: nowrap;
+  min-width: 60px;
 }
 
 .cart-item-qty {
@@ -3306,7 +3339,7 @@ a {
 
 .qty-btn {
   background: none;
-  border: 1px solid var(--border);
+  border: none;
   color: var(--cream);
   width: 1.6rem;
   height: 1.6rem;
@@ -3338,6 +3371,7 @@ a {
   font-weight: 700;
   color: var(--red);
   white-space: nowrap;
+  min-width: 60px;
 }
 
 .btn-remove {
@@ -3354,6 +3388,7 @@ a {
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 0.4rem;
+  margin-left: auto;
 }
 
 .btn-remove:hover {
@@ -3431,6 +3466,35 @@ a {
   cursor: not-allowed;
 }
 
+/* Toast notification for cart */
+.cart-toast {
+  position: fixed;
+  bottom: 6rem;
+  right: 1.5rem;
+  background: var(--bg-card);
+  border-left: 4px solid var(--red);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  color: var(--cream);
+  font-size: 0.85rem;
+  font-weight: 500;
+  z-index: 1102;
+  animation: fadeInUp 0.3s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive */
 @media (max-width: 639.98px) {
   .shopping-cart-icon {
@@ -3476,4 +3540,102 @@ a {
     padding: 1rem;
     gap: 0.8rem;
   }
+  
+  .cart-toast {
+    bottom: 5rem;
+    right: 1rem;
+    left: 1rem;
+    text-align: center;
+  }
+}
+
+
+
+
+/* ─────────────────────────────────────────
+   Floating sign for Dukan page (above market picks)
+───────────────────────────────────────── */
+.page-dukan .floating-sign-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin: 2rem 0 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(240, 217, 168, 0.12);
+  border-bottom: 1px solid rgba(240, 217, 168, 0.12);
+}
+
+.page-dukan .floating-sign {
+  flex: 0 0 auto;
+  width: min(240px, 35%);
+  filter: drop-shadow(8px 12px 20px rgba(0, 0, 0, 0.35));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.page-dukan .floating-sign:hover {
+  transform: translateY(-6px) rotate(1deg);
+  filter: drop-shadow(12px 16px 28px rgba(0, 0, 0, 0.45));
+}
+
+.page-dukan .floating-sign-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1.25rem;
+  background: transparent;
+}
+
+.page-dukan .floating-sign-caption {
+  flex: 1;
+  font-family: var(--font-brand);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  text-align: right;
+  border-right: 2px solid var(--red);
+  padding-right: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 767.98px) {
+  .page-dukan .floating-sign-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .page-dukan .floating-sign {
+    width: 180px;
+  }
+  .page-dukan .floating-sign-caption {
+    text-align: left;
+    border-right: none;
+    border-left: 2px solid var(--red);
+    padding-left: 1rem;
+    padding-right: 0;
+  }
+}
+
+
+/* Dukan: "Add to cart" buttons – solid yellow, no outline, no border-radius change */
+.page-dukan .btn-syko-gold {
+  background: var(--gold);
+  border: none;
+  color: var(--bg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.page-dukan .btn-syko-gold:hover {
+  background: #ffe87a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure any gold outline buttons inside Dukan become solid */
+.page-dukan .btn-outline-syko-gold {
+  background: var(--gold);
+  border: none;
 }

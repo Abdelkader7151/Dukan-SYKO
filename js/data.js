@@ -13,19 +13,20 @@ window.siteData = {
   ],
   contact: {
     address: "214a Prospect Park W, Brooklyn, NY 11215, United States",
-    phone: "(929) 441-4306",
-    phoneE164: "+19294414306",
+    phone: "(929) 424-0423",
+    phoneE164: "+19294240423",
     email: "brooklynsyko@gmail.com"
   },
   restaurant: {
     title: "SYKO Restaurant",
     description: "A modern Syrian-Korean restaurant experience with dine-in, delivery, and takeout rooted in warmth and craft.",
     address: "214a Prospect Park W, Brooklyn, NY 11215, United States",
-    phone: "(929) 441-4306",
+    phone: "(929) 424-0423",
     email: "brooklynsyko@gmail.com",
     hours: [
-      "Tuesday - Sunday: 11:00 AM - 10:00 PM",
-      "Weekend brunch specials until 2:30 PM",
+      "Tuesday - Thursday: 11:00 AM - 9:00 PM",
+      "Friday - Saturday: 11:00 AM - 10:00 PM",
+      "Sunday: 11:00 AM - 9:00 PM",
       "Closed Monday"
     ],
     menuChoices: ["Syrian Menu", "Korean Menu", "SYKO FUSION"],
@@ -122,9 +123,14 @@ window.siteData = {
     subtitle: "Middle Eastern & Asian Marketplace",
     description: "Shop for Middle Eastern and Asian pantry essentials, weekly sales, and new arrivals at Dukan SYKO Marketplace.",
     address: "214a Prospect Park W, Brooklyn, NY 11215, United States",
-    phone: "(929) 441-4306",
+    phone: "(929) 424-0423",
     email: "brooklyndukan@gmail.com",
-    hours: ["Daily: 9:00 AM - 10:00 PM"],
+    hours: [
+      "Tuesday - Thursday: 11:00 AM - 9:00 PM",
+      "Friday - Saturday: 11:00 AM - 10:00 PM",
+      "Sunday: 11:00 AM - 9:00 PM",
+      "Closed Monday"
+    ],
     categories: [
       "Weekly Sales",
       "Beans & Peas",
